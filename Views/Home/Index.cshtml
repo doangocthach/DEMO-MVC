@@ -1,0 +1,194 @@
+﻿<header>
+  <div class="">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg  navbar-light" id="navbg">
+        <div class="container-fluid text-center">
+          <div class="">
+            <h1 class="display-4">Welcome @ViewBag.user.Username</h1>
+          </div>
+          <a href="/Home/Logout">
+            <button class="btn-primary ml-auto" id="butt">
+              logout
+            </button>
+          </a>
+        </div>
+      </nav>
+    </div>
+</header>
+</div>
+
+
+
+
+<div class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Compose</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Sent</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu2">Receive</a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="col-9">
+        <div class="tab-content">
+          <div class="content-inbox">
+
+            <div>
+              <h3 id="title-detail"></h3>
+            </div>
+            <div>
+              <p id="receiver-detail"></p>
+            </div>
+            <div>
+              <p id="content-detail"></p>
+            </div>
+
+          </div>
+          <div id="home" class="container tab-pane active"><br>
+            <form action="/Home/Compose">
+
+              @if (@ViewBag.Send == false)
+              {
+              <p>Send message failed</p>
+              }
+              <div class="form-group wrap-compose d-flex flex-wrap align-items-center">
+                <textarea placeholder="Tên người nhận" id="userName" class="form-control js-formatInputName"
+                  name="Receiver"></textarea>
+                <!-- <input type="text" class="form-control js-formatInputName" id="userName" placeholder="Enter Receiver" name="Receiver"> -->
+              </div>
+              <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Something"
+                  name="Title">
+              </div>
+              <div>
+                <label>Content</label>
+                <br>
+                <textarea class="form-control" cols="50" id="subject" name="Content" placeholder="Write something.."
+                  style="height:200px;" name="Content"></textarea>
+              </div>
+              <br>
+              <button id="sendEmail" class="btn-primary">Send</button>
+            </form>
+          </div>
+          <div id="menu1" class="container tab-pane fade"><br>
+            @{
+            <div class="card-body bg-light">
+              <div class="row">
+                <b class="col-2">Receiver</b>
+                <b class="col-6">Title</b>
+                <b class="col-3">Time</b>
+                <b class="col-1"></b>
+              </div>
+            </div>
+            <ul class="list-group">
+
+              @foreach (var item in ViewBag.listmailsend)
+              {
+              @if(@item.checkInbox == 1)
+              {
+
+              }
+              else
+              {
+              <li class="list-group-item">
+                <!-- <a onclick="renderPopUp('@item.Receiver.Username','@item.conversations.content')" attachmentid='GS0089'
+                  class='video'> -->
+                  <a  onclick="detail('@item.Receiver.Username', '@item.conversations.title', '@item.conversations.content')" attachmentid='GS0089'
+                  class='video'>
+                  <div class="container">
+                    <div class="row">
+
+                      <div class="col-2">
+                        <b class="text-dark">@item.Receiver.Username</b>
+                      </div>
+                      <div class="col-6  text-truncate">
+                        <b>@item.conversations.title</b>
+                      </div>
+                      <div class="col-3">
+                        <span>
+                          @item.conversations.mailDate
+                        </span>
+                      </div>
+                      <div class="col-1">
+
+                        <button
+                          onclick="window.location.href='/Home/DeleteInbox?conversationId=@item.conversations.id'">
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              }
+              }
+            </ul>
+            }
+          </div>
+          <span id="popup"> </span>
+          <div id="menu2" class="container tab-pane fade"><br>
+            @{
+            <div class="card-body bg-light">
+              <div class="row">
+                <b class="col-2">Sender</b>
+                <b class="col-6">Title</b>
+                <b class="col-3">Time</b>
+                <b class="col-1"></b>
+              </div>
+            </div>
+            <ul class="list-group">
+              @foreach (var item in ViewBag.ListReceiver)
+              {
+              @if(@item.checkReceiver == 1)
+              {
+
+              }
+              else
+              {
+              <li class="list-group-item">
+                <a onclick="renderPopUp('@item.Sender.Username','@item.conversations.content')" attachmentid='GS0089'
+                  class='video'>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-2">
+                        <b class="text-dark">@item.Sender.Username</b>
+                      </div>
+                      <div class="col-6  text-truncate">
+                        <b>@item.conversations.title</b>
+                      </div>
+                      <div class="col-3">
+                        <span>
+                          @item.conversations.mailDate
+                        </span>
+                      </div>
+                      <div class="col-1">
+                        <button
+                          onclick="window.location.href='/Home/DeleteReceive?conversationId=@item.conversations.id'">
+                          <i class="fas fa-trash-alt"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              }
+              }
+            </ul>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

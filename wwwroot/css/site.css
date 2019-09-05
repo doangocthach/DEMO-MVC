@@ -1,0 +1,140 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+} */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px;
+  /* Vertically center the text there */
+}
+
+.wrap-form {
+  margin: 300px;
+  margin-top: 100px;
+}
+
+#checkb {
+  display: inline-block;
+}
+
+.inp {
+  margin: 5px;
+}
+
+#Regis {
+  text-align: left;
+}
+
+.abc {
+  display: none;
+  color: red;
+}
+
+.for input {
+  margin: 5px;
+}
+
+.but {
+  margin: 5px;
+}
+
+input {
+  border-radius: 5px;
+}
+
+.repass {
+  border: 1px solid red;
+}
+
+button {
+  border: none;
+}
+
+.jumbotron text-center {
+  padding: 20px 10px;
+}
+
+.navbg {
+  background-color: black !important
+}
+
+button {
+  border-radius: 5px !important;
+}
+
+.popUp {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.712)
+}
+
+textarea {
+  width: 100% !important;
+}
+
+/* @import url('https://www.facebook.com/thach.doan.53'); */
+
+.modal-title {
+  float: left;
+}
+
+.modal-header .close {
+  margin: 0px !important;
+}

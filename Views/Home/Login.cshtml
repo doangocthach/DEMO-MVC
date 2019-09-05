@@ -1,0 +1,33 @@
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center">
+    @if (ViewBag.user == null)
+    {
+        <div class="wrap-form">
+            @if (ViewBag.Error == true)
+            {
+                <p>Account or password is incorrect </p>
+            }
+            <form method="POST" action="/Home/DoLogin"  >
+            <h1>Login</h1>
+            <input placeholder="Username" type="text" name="name" id="usern" required  oninvalid="this.setCustomValidity('Please Enter valid ')" />
+            <br>
+            <input placeholder="Password" type="password" name="password" class="inp" id="userp" required  oninvalid="this.setCustomValidity('Please Enter valid password')" />
+            <br>
+            <a href="/Home/Register" id="Regis">Register</a>
+            <br>
+            <input  type="checkbox" name="remember"  id="checkb"/>Remember me
+            <br>
+            <button class="but" >Login</button>
+           </form>
+        </div>
+    }
+    else
+    {  
+   
+    }
+    
+</div>

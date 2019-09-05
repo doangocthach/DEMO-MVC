@@ -1,0 +1,26 @@
+
+
+<div class="text-center">
+        @if (ViewBag.error == true )
+        {
+              <p>Username and password invalid or exists</p>
+        }
+        
+           
+            <form method="POST" action="/Home/Registered">
+            <h1>Register</h1>
+            <input placeholder="Enter Username" type="text" name="uname"  required  oninvalid="this.setCustomValidity('Please Enter valid username')"/>
+            <br>
+            <input placeholder="Enter Password" required onkeyup='check();' id="pas" type="text" name="uname" class="inp" name="confpass"  oninvalid="this.setCustomValidity('Please Enter valid password')" />
+            <br>
+            <input placeholder="Re-Enter Password" onkeyup='check();' required id="repas" type="password" name="upassword" class="inp"  oninvalid="this.setCustomValidity('Please Enter valid password')"/>
+            <br>
+            <span id="message"></span>
+            <br>
+            <button id="butt" class="but">Register</button>
+            <br>
+            <br>
+            <a href="/">Back to home</a>
+           </form>
+          
+</div>
